@@ -2,7 +2,7 @@
 
 # How Python makes it easy to make sockets
 from socket import *
-
+import time
 # serverName here works as the IP address
 # serverPort is on what port we will open up our connection
 serverName = '127.168.0.1'
