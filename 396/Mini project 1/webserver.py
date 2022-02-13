@@ -1,8 +1,9 @@
 # Import socket module
 from socket import *
 import pathlib
-host = '127.0.0.1'
-port = 6710
+import time
+host = '134.10.17.162'
+port = 6010
 defaultPath = pathlib.Path(__file__).parent.resolve()
 print(defaultPath)
 # Prepare server socket
@@ -16,12 +17,13 @@ serverSocket.listen()
 while True:
     # Establish connection
     #Set timeout error length
-    serverSocket.settimeout(30)
+    serverSocket.settimeout(360)
     print('Server listening...')
     #accept requests; create client socket 
     connectionSocket, addr = serverSocket.accept()
     try:
         #decode client message
+        time.sleep(10)
         message = connectionSocket.recv(1024).decode()
         print(message)
         #parse the file reqeusted
@@ -31,18 +33,17 @@ while True:
         f = open(fileLocation, "rb")
         outputdata = f.read()
         # Send one HTTP header line to socket
-        # Your code starts here
         statusLine = 'HTTP/1.1 200 OK'
         connectionSocket.send(statusLine.encode())
         connectionSocket.send("\r\n".encode())
         connectionSocket.send("\r\n".encode())
         print("header sent")
-        # Your code ends here
 
         #Send object to client
         connectionSocket.send(outputdata)
         connectionSocket.send("\r\n".encode())
         print("body sent")
+        #Close client socket
         connectionSocket.close()
     except IOError:
         # Send 404 message
