@@ -2,7 +2,7 @@
 from socket import *
 import pathlib
 import time
-host = ''
+host = '127.0.0.1'
 port = 6010
 defaultPath = pathlib.Path(__file__).parent
 print(defaultPath)

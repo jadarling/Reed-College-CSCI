@@ -8,10 +8,10 @@ probab = 0.2
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 # Assign IP address and port number to socket
 serverSocket.bind(('', 12000))
-
+print ("Server is ready to receive")
 while True:
     # Receive client packet and arrival address
-    message, address = serverSocket.recvfrom(1024)
+    message, address = serverSocket.recvfrom(2048)
     # Capitalize the message
     message = message.upper()
     # Error simulator goes here
@@ -22,5 +22,6 @@ while True:
         serverSocket.close()
     # Your code ends here
     else:
+
         serverSocket.sendto(message, address)
         serverSocket.close()
