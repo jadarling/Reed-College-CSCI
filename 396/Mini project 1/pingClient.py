@@ -12,12 +12,13 @@ while True:
         now = time.time()
         clientSocket.sendto(pingy.encode(), (serverName, serverPort))
         Message, serverAddress = clientSocket.recvfrom(2048)
+        recievedAt = time.time()
         if Message.decode() == 'ERROR':
             print(str(i) + '*')
         else:
-            recievedAt = time.time()
             totalTime = recievedAt-now
-            line = str(i) +'. ' + str(Message) + ' RTT ' + str(totalTime) + 's'
+            rttMs = totalTime*1000
+            line = str(i) +'. ' + str(Message) + ' RTT ' + str(rttMs) + 'ms'
             print(line)
     clientSocket.sendto(doney.encode(), (serverName, serverPort))
     print("done!")
