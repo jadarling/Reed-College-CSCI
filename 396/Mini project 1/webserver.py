@@ -23,7 +23,9 @@ while True:
     connectionSocket, addr = serverSocket.accept()
     try:
         #decode client message
+        #Solution for OSError 10054; just make the server wait a second lol
         time.sleep(10)
+        #recieve message from socket
         message = connectionSocket.recv(1024).decode()
         print(message)
         #parse the file reqeusted
@@ -31,6 +33,7 @@ while True:
         fileLocation = defaultPath / filename[1:]
         print(fileLocation)
         f = open(fileLocation, "rb")
+        #designate the output data
         outputdata = f.read()
         # Send one HTTP header line to socket
         statusLine = 'HTTP/1.1 200 OK'

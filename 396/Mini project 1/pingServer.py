@@ -24,6 +24,6 @@ while True:
         serverSocket.sendto(message, address)
         print(";)")
 
-    if message == "done!":
+    if message == 'done!':
         print("Au revoir!")
         serverSocket.close()

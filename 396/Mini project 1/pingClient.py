@@ -5,10 +5,10 @@ serverName = '127.0.0.1'
 serverPort = 6790
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 pingy='hewwo?'
-doney="done!"
+doney='done!'
 while True:
-    for i in range(1,11):
-        time.sleep(1)
+    for i in range(0,10):
+        
         now = time.time()
         clientSocket.sendto(pingy.encode(), (serverName, serverPort))
         Message, serverAddress = clientSocket.recvfrom(2048)
