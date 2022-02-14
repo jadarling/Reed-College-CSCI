@@ -2,9 +2,9 @@
 from socket import *
 import pathlib
 import time
-host = '134.10.17.162'
+host = ''
 port = 6010
-defaultPath = pathlib.Path(__file__).parent.resolve()
+defaultPath = pathlib.Path(__file__).parent
 print(defaultPath)
 # Prepare server socket
 # SOCK_STREAM for TCP, SOCK_DGRAM for UDP
@@ -28,7 +28,7 @@ while True:
         print(message)
         #parse the file reqeusted
         filename = message.split()[1]
-        fileLocation = str(defaultPath)+ "\\" + filename[1:]
+        fileLocation = defaultPath / filename[1:]
         print(fileLocation)
         f = open(fileLocation, "rb")
         outputdata = f.read()

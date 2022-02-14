@@ -6,7 +6,7 @@ host = str(input("Host: "))
 port = int(input("Port: "))
 obj = input("Object: ")
 """
-host = '134.10.17.162'
+host = ''
 port = 6010
 obj= 'jim.html'
 clientSocket = socket(AF_INET,SOCK_STREAM)
@@ -23,7 +23,8 @@ try:
     inputData = clientSocket.recv(4096)
     print(responseHeader)
     print("response recieved")
-    print(inputData.decode())
+    html = open(inputData,'r')
+    
 
     clientSocket.close()
 except IOError:

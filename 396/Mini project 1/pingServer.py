@@ -3,7 +3,7 @@
 import random
 # Import socket module
 from socket import *
-
+probab = 0.2
 # SOCK_STREAM for TCP, SOCK_DGRAM for UDP
 serverSocket = socket(AF_INET, SOCK_DGRAM)
 # Assign IP address and port number to socket
@@ -15,9 +15,12 @@ while True:
     # Capitalize the message
     message = message.upper()
     # Error simulator goes here
-    # Your code starts here
-
+    errored = random.random()
+    if errored <= probab:
+        message = "ERROR"
+        serverSocket.sendto(message.encode(),address)
+        serverSocket.close()
     # Your code ends here
-    # If no error, server responds
-    serverSocket.sendto(message, address)
-
+    else:
+        serverSocket.sendto(message, address)
+        serverSocket.close()
