@@ -17,8 +17,7 @@ while True:
     # Error simulator goes here
     errored = random.random()
     if errored <= probab:
-        message = "ERROR"
-        serverSocket.sendto(message.encode(),address)
+        pass
     # Your code ends here
     else:
         serverSocket.sendto(message, address)

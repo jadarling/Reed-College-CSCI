@@ -7,19 +7,20 @@ clientSocket = socket(AF_INET, SOCK_DGRAM)
 pingy='hewwo?'
 doney='done!'
 while True:
-    for i in range(0,10):
-        
-        now = time.time()
-        clientSocket.sendto(pingy.encode(), (serverName, serverPort))
-        Message, serverAddress = clientSocket.recvfrom(2048)
-        recievedAt = time.time()
-        if Message.decode() == 'ERROR':
-            print(str(i) + '*')
-        else:
+    try: 
+        for i in range(0,10):
+            now = time.time()
+            clientSocket.sendto(pingy.encode(), (serverName, serverPort))
+            Message, serverAddress = clientSocket.recvfrom(2048)
+            recievedAt = time.time()
             totalTime = recievedAt-now
             rttMs = totalTime*1000
-            line = str(i) +'. ' + str(Message) + ' RTT ' + str(rttMs) + 'ms'
+            line = str(i) +'. ' + str(Message) + ' RTT ' + str(rttMs) + 'ms'            
             print(line)
+            # if u DONT recieve a packet: print(str(i) + '*')
+    except clientSocket.Timeouterror:
+        print(str(i) + '*')
+
     clientSocket.sendto(doney.encode(), (serverName, serverPort))
     print("done!")
     clientSocket.close()
