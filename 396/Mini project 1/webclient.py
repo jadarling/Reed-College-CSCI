@@ -19,14 +19,13 @@ try:
     clientSocket.send("\r\n".encode())
     print("request sent")
 
-    responseHeader = clientSocket.recv(4096), clientSocket.recv(4096), clientSocket.recv(4096)
-    inputData = clientSocket.recv(4096)
+    responseHeader, inputData = clientSocket.recv(2048)
     print(responseHeader)
+    print(inputData)
     print("response recieved")
-    html = open(inputData,'r')
+    html = open(inputData.decode(),'r')
     
-
     clientSocket.close()
 except IOError:
-    print("Your mom.")
+    print("You're mom.")
     clientSocket.close()
