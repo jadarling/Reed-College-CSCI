@@ -24,7 +24,7 @@ while True:
     try:
         #decode client message
         #Solution for OSError 10054; just make the server wait a second lol
-        time.sleep(10)
+        time.sleep(5)
         #recieve message from socket
         message = connectionSocket.recv(1024).decode()
         print(message)
@@ -56,5 +56,5 @@ while True:
         connectionSocket.send("\r\n".encode())
         # Close client socket
         connectionSocket.close()
-        # Your code ends here   
+        break   
 serverSocket.close()

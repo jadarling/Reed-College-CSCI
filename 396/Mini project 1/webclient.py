@@ -1,6 +1,8 @@
 from socket import *
 from urllib import response
 
+from nbformat import read
+
 """
 host = str(input("Host: "))
 port = int(input("Port: "))
@@ -19,12 +21,15 @@ try:
     clientSocket.send("\r\n".encode())
     print("request sent")
 
-    responseHeader, inputData = clientSocket.recv(2048)
-    print(responseHeader)
+    inputData = clientSocket.recv(2048)
+    responseData= clientSocket.recv(2048)
+    print("header: ")
     print(inputData)
-    print("response recieved")
-    html = open(inputData.decode(),'r')
-    
+    print()
+    print("body: ")
+    print(responseData)
+    print("response recieved; goodbye")
+
     clientSocket.close()
 except IOError:
     print("You're mom.")
