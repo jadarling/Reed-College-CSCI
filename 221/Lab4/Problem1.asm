@@ -1,6 +1,6 @@
 # This program prints the value of variable x to the console.
     .data
-x:  .word   7           # global variable x has value 5
+x:  .word   7           # global variable x has value 7
     .text
     .align 2
     .globl main
