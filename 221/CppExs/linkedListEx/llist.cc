@@ -50,5 +50,5 @@ void append(LNode* n1, LNode* n2)
   assert(n2);
   assert(n1);
   n2->next_= n1->next_;
-  
+  //Not complete
 }

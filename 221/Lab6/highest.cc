@@ -4,13 +4,15 @@
 using namespace std;
 
 const int* highest(int val, const int* start, const int* finish){
-
+    auto beeper = start;
     auto mid = *finish;
     mid /= 2;
     while(mid!=val){
-        if(val>mid){
+        if(val>mid) mid = mid + (*finish - mid / 2);
+        if(val<mid) mid /= 2;
 
-        }
+
+
 
 
     }

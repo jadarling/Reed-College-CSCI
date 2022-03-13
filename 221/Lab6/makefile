@@ -1,4 +1,7 @@
 NAME = $@
+
+
+
 source.wc : source.txt
 	wc source.txt > source.wc
 

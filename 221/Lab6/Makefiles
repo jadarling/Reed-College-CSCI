@@ -1,0 +1,18 @@
+
+CXX=g++
+CXXFLAGS=-Wall -Wextra -pedantic -Werror -std=c++17
+OPTFLAGS=-O3
+LDFLAGS=$(CXXFLAGS) $(OPTFLAGS)
+SRC=use_primes.cc primes.cc
+OBJ=$(SRC:.cc=.o)
+
+all:  use_primes
+
+use_primes: $(OBJ)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJ)
+
+%.o.cc:	%.cc %.hh
+	$(CXX) $(CXXFLAGS) $(OPTFLAGS) -c -o $@ $<
+
+clean:
+	rm -rf $(OBJ) use_primes
