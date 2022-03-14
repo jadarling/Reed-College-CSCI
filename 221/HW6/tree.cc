@@ -9,8 +9,7 @@ isIn (tree_ptr_t tree, key_type key)
     if (tree->key_ == key)
         return true;
     else if (tree){
-        isIn(tree->left_, key);
-        isIn(tree->right_, key);
+        return isIn(tree->left_, key) || isIn(tree->right_, key);
     }
     return false;
 }
@@ -31,9 +30,9 @@ create_tree(const key_type& key,
             tree_ptr_t left,
             tree_ptr_t right)
 {
-    tree_ptr_t node;
-    node = new Tree({key, value, left, right});
-    return node;
+     // tree_ptr_t node;
+    // node = new Tree({key, value, left, right});
+    return new Tree({key, value, left, right});
 }
 
 
@@ -41,10 +40,11 @@ create_tree(const key_type& key,
 void
 destroy_tree(tree_ptr_t tree)
 {
-    if (tree)
+    if (tree) {
         destroy_tree(tree->left_);
         destroy_tree(tree->right_);
         delete(tree);
+    }
 }
 
 
@@ -55,7 +55,7 @@ path_to(tree_ptr_t tree, key_type key)
     std::string path = "";
     auto tmp = tree;
     //base cases
-    if (!isIn(tree,key)) return (path + "-");
+    if (!isIn(tree,key)) return ("-");
     if (tree -> key_ == key) return path;
     while (tree->key_!=key){
         if (tree->left_){

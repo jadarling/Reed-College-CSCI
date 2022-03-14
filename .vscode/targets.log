@@ -10,14 +10,14 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
  
 
-# Make data base, printed on Fri Mar 11 17:16:31 2022
+# Make data base, printed on Sun Mar 13 20:50:22 2022
 
 # Variables
 
 # automatic
+ 
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
- 
 ?F = $(notdir $?)
 # environment
 VSCODE_LOG_NATIVE = false
@@ -44,7 +44,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-f84a72e5-3476-4549-b8f0-87b44a683c36.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-4a5491ee-d959-456a-b437-60d5ceec75f9.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -82,7 +82,7 @@ VSCODE_CODE_CACHE_PATH = /Users/jdarling/Library/Application Support/Code/Cached
 # environment
 LOGNAME = jdarling
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -138,6 +138,7 @@ COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
+ 
 <F = $(notdir $<)
 # environment
 LC_ALL = C
@@ -150,14 +151,13 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 20639
+VSCODE_PID = 23234
 # variable set hash-table stats:
 # Load=68/1024=7%, Rehash=0, Collisions=1/88=1%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
- 
 
 # Directories
 
@@ -235,6 +235,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri Mar 11 17:16:31 2022
+# Finished Make data base on Sun Mar 13 20:50:22 2022
 
  

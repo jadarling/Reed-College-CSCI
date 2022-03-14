@@ -4,19 +4,18 @@
 using namespace std;
 
 const int* highest(int val, const int* start, const int* finish){
-    auto beeper = start;
-    auto mid = *finish;
-    mid /= 2;
-    while(mid!=val){
-        if(val>mid) mid = mid + (*finish - mid / 2);
-        if(val<mid) mid /= 2;
-
-
-
-
-
-    }
-    return 0;
+    int mid = (finish - start) /2;
+    if (mid==val)
+        const int* foundIt = &mid;
+        return foundIt;
+    if(start[mid] < val){
+        mid++;
+        const int* highest(int val, int mid, const int* finish);
+        }
+    if (start[mid] > val){
+        mid--;
+        const int* highest(int val, const int* start, int mid);
+        }
 }
 
 

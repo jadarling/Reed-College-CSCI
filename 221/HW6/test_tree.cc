@@ -1,11 +1,14 @@
-#include "tree.cc"
-
+#include "tree.hh"
+#include <iostream>
 
 
 int main(){
-    Tree* root;
+
+///////////////MAKE TREE
+    tree_ptr_t root;
 //Create root
     root = create_tree(126, 1, nullptr, nullptr);
+    std::cout << root << "\n";
 //Add children to root to create the tree
 /*
             126
@@ -25,6 +28,10 @@ int main(){
 //right side
     root->right_ = create_tree(12, 1, nullptr, nullptr);
     root->right_->left_ = create_tree(3, 1, nullptr, nullptr);
+    std::cout << root->key_;
+///////////////DELETE TREE
+
+
 
     return 0;
 }
