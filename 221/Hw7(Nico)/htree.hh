@@ -16,6 +16,8 @@ class HTree {
   using possible_path_t = std::unique_ptr<path_t>;
   using key_t = int;
   using value_t = uint64_t;
+  key_t get_key() const { return key_; }
+  value_t get_value() const { return value_; }
 
   // Initialize with a key and a value:
   HTree(key_t key,
@@ -24,30 +26,17 @@ class HTree {
         tree_ptr_t right = nullptr);
   ~HTree();
 
-  key_t get_key() const {return key_;}  // Return key in current node
-  value_t get_value() const{ return value_;}      // Return value in current node
-
   // Return the child of this node indicated by dir.
   // If the child is nullptr (current node is a leaf), returns nullptr.
-  tree_ptr_t get_child(Direction dir) const { 
-      if(dir==Direction::LEFT){return left_;}
-      if (dir==Direction::RIGHT){return right_;}
-}
+  tree_ptr_t get_child(Direction dir) const;
 
   // Return an optional list of directions from root to a node of a given key.
   // If key not contained in this tree, returns nullptr
-  possible_path_t HTree::path_to(key_t key) const {
-        auto path = new path_t;
-        possible_path_t pptr(path);
-        if (key_==key){
-              return pptr;
-        }
-  };
+  possible_path_t path_to(key_t key) const;
 
-  private:
-      key_t key_;
-      value_t value_;
-      tree_ptr_t left_;
-      tree_ptr_t right_;
-
+ private:
+  key_t key_;
+  value_t value_;
+  tree_ptr_t left_;
+  tree_ptr_t right_;
 };

@@ -1,6 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
-objc[35661]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libauthinstall.dylib (0x2107ceb90) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1042ac2c8). One of the two will be used. Which one is undefined.
-objc[35661]: Class AMSupportURLSession is implemented in both /usr/lib/libauthinstall.dylib (0x2107cebe0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x1042ac318). One of the two will be used. Which one is undefined.
+objc[43571]: Class AMSupportURLConnectionDelegate is implemented in both /usr/lib/libauthinstall.dylib (0x2107ceb90) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x105d582c8). One of the two will be used. Which one is undefined.
+objc[43571]: Class AMSupportURLSession is implemented in both /usr/lib/libauthinstall.dylib (0x2107cebe0) and /Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/MobileDevice (0x105d58318). One of the two will be used. Which one is undefined.
  
 make: Entering directory `/Users/jdarling/Documents/Reed-College-CSCI'
 make: Leaving directory `/Users/jdarling/Documents/Reed-College-CSCI'
