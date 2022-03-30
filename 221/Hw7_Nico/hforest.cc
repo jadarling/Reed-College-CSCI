@@ -6,7 +6,7 @@ bool compare_trees(HTree::tree_ptr_t t1, HTree::tree_ptr_t t2) {
 }
 
 
-void add_tree(HTree::tree_ptr_t node, std::vector forest){ 
+void add_tree(HTree::tree_ptr_t node, std::vector<HTree::tree_ptr_t> forest){ 
     forest.emplace_back(node);
 }
 
