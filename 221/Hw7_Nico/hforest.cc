@@ -5,12 +5,12 @@
 //Ideally, this code is more efficient than OOP, but lacks the organization. 
 // size() and add() are built into the vector (assuming tree_ptr_t construction)
 
-
+// Comparison function for heapify 
 bool compare_trees(HTree::tree_ptr_t t1, HTree::tree_ptr_t t2) {
     return t1->get_value() < t2->get_value();
 }
 
-
+// 
 void add_tree(HTree::tree_ptr_t node, std::vector<HTree::tree_ptr_t> forest){ 
     forest.emplace_back(node);
 }

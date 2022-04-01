@@ -5,4 +5,5 @@
 #include"htree.hh"
 
 
-std::vector
+std::vector <HTree::tree_ptr_t> HForest = {};
+
