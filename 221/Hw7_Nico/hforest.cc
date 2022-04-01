@@ -1,5 +1,10 @@
 #include "hforest.hh"
 #include <vector>
+// HForest, in this version, uses a classless paradigm; essentially, HForest is simply a vector
+// and the functions described below are used to heapify the vector itself not turn it into a heap object.
+//Ideally, this code is more efficient than OOP, but lacks the organization. 
+// size() and add() are built into the vector (assuming tree_ptr_t construction)
+
 
 bool compare_trees(HTree::tree_ptr_t t1, HTree::tree_ptr_t t2) {
     return t1->get_value() < t2->get_value();
