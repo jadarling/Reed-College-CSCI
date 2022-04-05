@@ -40,6 +40,9 @@ class Huffman {
 
   std::vector<int> getFreqs();
 
+  HForest::tree_t 
+  mergeTrees(HTree t1, HTree t2);
+  
   // Encode a symbol into a sequence of bits, then update frequency table.
   bits_t encode(int symbol);
 

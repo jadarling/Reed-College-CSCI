@@ -12,6 +12,11 @@
     return forest;
   };
 
+  HForest::tree_t
+  mergeTrees(HTree t1, HTree t2){
+    HTree(nullptr,(t1.get_value()+t2.get_value()), t1,t2);
+
+  };
 
 // Encode a symbol into a sequence of bits, then update frequency table.
   Huffman::bits_t 
