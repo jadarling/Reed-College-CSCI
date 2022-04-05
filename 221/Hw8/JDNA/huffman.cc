@@ -12,17 +12,18 @@
     return forest;
   };
 
-  HForest::tree_t
-  mergeTrees(HTree t1, HTree t2){
-    HTree(nullptr,(t1.get_value()+t2.get_value()), t1,t2);
-
+  HForest
+  mergeTrees(HForest forest, HForest::tree_t t1, HForest::tree_t t2){
+    int value = t1->get_value() + t2->get_value();
+    forest.add_tree(HTree::tree_ptr_t(new HTree(-1, value, t1, t2)));
+    return forest;
   };
 
 // Encode a symbol into a sequence of bits, then update frequency table.
   Huffman::bits_t 
   encode(int symbol){
-    
-  };
+
+};
 
 
   // Decode a single bit into a symbol. If no symbol can be unmabiguously decoded

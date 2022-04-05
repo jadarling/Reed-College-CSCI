@@ -20,17 +20,13 @@ class Huffman {
   using bits_t = std::vector<bool>;
 
 
-  Huffman(){
-    std::vector<int> freqs;
-    
-    //HForest forest;
-    //forest.add_tree(HTree::tree_ptr_t(new HTree(HEOF,1)));
+  Huffman(std::vector<int> freqs_){
+    std::vector<int> freqs_;
     for (auto i=0; i < HEOF; i++){
-      freqs.push_back(0);
-    }
-    freqs.push_back(1);
-    
+      freqs_.push_back(0);}
+    freqs_.push_back(1);
   };
+
 
   ~Huffman();
   Huffman(const Huffman&) = delete;
@@ -38,19 +34,22 @@ class Huffman {
   Huffman& operator=(const Huffman&) = delete;
   Huffman& operator=(Huffman&&) = delete;
 
-  std::vector<int> getFreqs();
-
-  HForest::tree_t 
-  mergeTrees(HTree t1, HTree t2);
+  //Build Forest method
+  HForest 
+  build_forest(std::vector<int>);
   
   // Encode a symbol into a sequence of bits, then update frequency table.
-  bits_t encode(int symbol);
+  bits_t 
+  encode(int symbol);
 
   // Decode a single bit into a symbol. If no symbol can be unmabiguously decoded
   // without additional bits, returns a negative value.
   // Subsequent calls with more bits should eventually resolve to either
   // a character symbol or HEOF.
   // Finally, updates the frequency table with this additional symbol.
-  int decode(bool bit);
-
+  int 
+  decode(bool bit);
+  
+  private:
+    std::vector<int> freqs_;
 };
