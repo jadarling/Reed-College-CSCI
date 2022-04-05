@@ -4,7 +4,7 @@
 
 //Build Forest method
   HForest
-  build_forest(std::vector<int> freqs){
+  Huffman::build_forest(std::vector<int> freqs){
     HForest forest;
     for (int i=0; i < freqs.size(); i++){
       forest.add_tree(HTree::tree_ptr_t(new HTree(i,freqs[i])));
@@ -13,7 +13,7 @@
   };
 
   HForest
-  mergeTrees(HForest forest, HForest::tree_t t1, HForest::tree_t t2){
+  Huffman::mergeTrees(HForest forest, HForest::tree_t t1, HForest::tree_t t2){
     int value = t1->get_value() + t2->get_value();
     forest.add_tree(HTree::tree_ptr_t(new HTree(-1, value, t1, t2)));
     return forest;
@@ -21,8 +21,8 @@
 
 // Encode a symbol into a sequence of bits, then update frequency table.
   Huffman::bits_t 
-  encode(int symbol){
-
+  Huffman::encode(int symbol){
+    
 };
 
 
@@ -32,6 +32,6 @@
   // a character symbol or HEOF.
   // Finally, updates the frequency table with this additional symbol.
   int 
-  decode(bool bit){
+  Huffman::decode(bool bit){
 
   };
