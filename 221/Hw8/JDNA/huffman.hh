@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "htree.hh"
+#include "hforest.hh"
 
 class Huffman {
  public:
@@ -17,8 +18,13 @@ class Huffman {
   static const int HEOF = ALPHABET_SIZE - 1;  // Special symbol to denote end of file
 
   using bits_t = std::vector<bool>;
+  std::vector<int> freqs_(int ALPHABET_SIZE);
+  HForest Forest;
 
+  for (auto i : freqs_ ) {
+    Forest.add_tree(Htree(i, 0))
 
+  };
 
   
 
@@ -28,6 +34,8 @@ class Huffman {
   Huffman(Huffman&&) = delete;
   Huffman& operator=(const Huffman&) = delete;
   Huffman& operator=(Huffman&&) = delete;
+
+  std::vector<int> getFreqs();
 
   // Encode a symbol into a sequence of bits, then update frequency table.
   bits_t encode(int symbol);
@@ -39,6 +47,4 @@ class Huffman {
   // Finally, updates the frequency table with this additional symbol.
   int decode(bool bit);
 
-  private:
-    std::vector<int> freqs_;
 };

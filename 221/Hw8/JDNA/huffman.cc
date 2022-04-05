@@ -4,8 +4,6 @@
 
 
 // Encode a symbol into a sequence of bits, then update frequency table.
-  
-  
   Huffman::bits_t 
   encode(int symbol){
       
