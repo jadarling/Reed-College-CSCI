@@ -18,17 +18,20 @@ class Huffman {
   static const int HEOF = ALPHABET_SIZE - 1;  // Special symbol to denote end of file
 
   using bits_t = std::vector<bool>;
-  std::vector<int> freqs_(int ALPHABET_SIZE);
-  HForest Forest;
 
-  for (auto i : freqs_ ) {
-    Forest.add_tree(Htree(i, 0))
 
+  Huffman(){
+    std::vector<int> freqs;
+    
+    //HForest forest;
+    //forest.add_tree(HTree::tree_ptr_t(new HTree(HEOF,1)));
+    for (auto i=0; i < HEOF; i++){
+      freqs.push_back(0);
+    }
+    freqs.push_back(1);
+    
   };
 
-  
-
-  Huffman();
   ~Huffman();
   Huffman(const Huffman&) = delete;
   Huffman(Huffman&&) = delete;

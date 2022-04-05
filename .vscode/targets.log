@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Fri Apr  1 15:07:03 2022
+# Make data base, printed on Mon Apr  4 19:55:07 2022
 
 # Variables
 
@@ -43,7 +43,7 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-4542730a-3d44-4015-91ac-111dac79b39c.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-249881df-e402-47eb-84df-acc64ce93ce9.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -89,7 +89,6 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # environment
 XPC_FLAGS = 0x0
 # default
- 
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
@@ -111,7 +110,6 @@ MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 .VARIABLES := 
 # environment
 TMPDIR = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/
- 
 # automatic
 *F = $(notdir $*)
 # environment
@@ -149,10 +147,9 @@ SUFFIXES :=
 # environment
 MAKELEVEL := 0
 # environment
- 
 LANG = C
 # environment
-VSCODE_PID = 51450
+VSCODE_PID = 57522
 # variable set hash-table stats:
 # Load=68/1024=7%, Rehash=0, Collisions=1/88=1%
 
@@ -236,6 +233,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri Apr  1 15:07:03 2022
+# Finished Make data base on Mon Apr  4 19:55:07 2022
 
  
