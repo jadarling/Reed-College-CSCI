@@ -27,7 +27,7 @@ HForest::add_tree(tree_t tree)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-// Return the tree with the highest frequency count (and remove it from forest)
+// Return the tree with the lowest frequency count (and remove it from forest)
 HForest::tree_t
 HForest::pop_top()
 {
