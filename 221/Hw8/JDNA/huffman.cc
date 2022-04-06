@@ -1,10 +1,20 @@
 
 #include"huffman.hh"
 
+HForest
+Huffman::buildHuff(HForest forest){
+  if (forest.size() <= 1){ return forest;}
+  else {
+    HForest::tree_t tmp = forest.pop_top();
+    return buildHuff(mergeTrees(forest, tmp, forest.pop_top()));
+  };
+  return forest;
+};
+
 
 //Build Forest method
   HForest
-  Huffman::build_forest(std::vector<int> freqs){
+  Huffman::buildForest(std::vector<int> freqs){
     HForest forest;
     for (int i=0; i < freqs.size(); i++){
       forest.add_tree(HTree::tree_ptr_t(new HTree(i,freqs[i])));
@@ -22,7 +32,21 @@
 // Encode a symbol into a sequence of bits, then update frequency table.
   Huffman::bits_t 
   Huffman::encode(int symbol){
-    
+    bits_t encoded;
+    HForest huffman = buildForest(this->freqs_);
+    huffman = buildHuff(huffman);
+    HForest::tree_t huffTree = huffman.pop_top();
+    HTree::possible_path_t path = huffTree->path_to(symbol);
+    for (HTree::Direction direction : *path){
+      switch(direction){
+        case HTree::Direction::RIGHT:
+          encoded.emplace_back(true);
+        case HTree::Direction::LEFT:
+          encoded.emplace_back(false);
+      };
+    };
+    this->freqs_[symbol]++;
+    return encoded;
 };
 
 
@@ -33,5 +57,6 @@
   // Finally, updates the frequency table with this additional symbol.
   int 
   Huffman::decode(bool bit){
+    HForest huffman = buildForest(this->freqs_);
 
   };
