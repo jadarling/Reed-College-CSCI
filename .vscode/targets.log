@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Tue Apr  5 12:58:20 2022
+# Make data base, printed on Tue Apr  5 15:20:48 2022
 
 # Variables
 
@@ -43,12 +43,11 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 INFOPATH = /opt/homebrew/share/info:/opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-7b939613-092b-4033-950c-cd3b02b2ba87.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/9b/p56zmsg16rz6866qtqfzycwm0000gn/T/vscode-ipc-a9c8a64c-6692-45b3-9551-74a794a05dec.sock
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.10/bin
- 
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -203,6 +202,7 @@ makefile:
 #  File has been updated.
 #  Failed to be updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
@@ -234,6 +234,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Tue Apr  5 12:58:20 2022
+# Finished Make data base on Tue Apr  5 15:20:48 2022
 
  
