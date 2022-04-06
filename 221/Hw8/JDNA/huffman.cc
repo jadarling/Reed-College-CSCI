@@ -37,12 +37,13 @@ Huffman::buildHuff(HForest forest){
     huffman = buildHuff(huffman);
     HForest::tree_t huffTree = huffman.pop_top();
     HTree::possible_path_t path = huffTree->path_to(symbol);
+    if (!path) {return encoded;}
     for (HTree::Direction direction : *path){
       switch(direction){
         case HTree::Direction::RIGHT:
-          encoded.emplace_back(true);
+          encoded.push_back(true);
         case HTree::Direction::LEFT:
-          encoded.emplace_back(false);
+          encoded.push_back(false);
       };
     };
     this->freqs_[symbol]++;
@@ -57,6 +58,26 @@ Huffman::buildHuff(HForest forest){
   // Finally, updates the frequency table with this additional symbol.
   int 
   Huffman::decode(bool bit){
-    HForest huffman = buildForest(this->freqs_);
-
+    HForest::tree_t curr = huffTree_;
+    if (!huffTree_){    
+      HForest huffman = buildForest(this->freqs_);
+      HForest huffTree = buildHuff(huffman);
+      curr = huffTree.pop_top();}
+    else {curr = huffTree_;}
+    
+    switch(bit) {
+      case true:
+        curr = curr->get_child(HTree::Direction::RIGHT);
+      case false:
+        curr = curr->get_child(HTree::Direction::LEFT);
+      }
+    if (curr->get_key() == -1) { 
+      huffTree_ = curr;
+      return -1;
+    }
+    else {
+      char decoded = curr->get_key();
+      this->freqs_[decoded]++;
+      return decoded;
+    };
   };

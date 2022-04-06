@@ -56,6 +56,8 @@ class Huffman {
   // Finally, updates the frequency table with this additional symbol.
   int 
   decode(bool bit);
+  
   private:
   std::vector<int> freqs_;
+  HForest::tree_t huffTree_ = nullptr;
 };
