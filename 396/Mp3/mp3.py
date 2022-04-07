@@ -1,7 +1,3 @@
-"""
-Where solution code to MP3 should be written.  No other files should
-be modified.
-"""
 
 import socket
 import io
@@ -28,9 +24,9 @@ def send(sock: socket.socket, data: bytes):
     # over the network, pausing half a second between sends to let the
     # network "rest" :)
     logger = miniproject3.logging.get_logger("mp3-sender")
-    chunk_size = miniproject3.MAX_PACKET - 5
+    chunk_size = miniproject3.MAX_PACKET-5
     pause = .1
-    offsets = range(0, len(data), miniproject3.MAX_PACKET)
+    offsets = range(0, len(data), miniproject3.MAX_PACKET-5)
     for chunk in [data[i:i + chunk_size] for i in offsets]:
         sock.send(b'00000' + chunk)
         logger.info("Pausing for %f seconds", round(pause, 2))
