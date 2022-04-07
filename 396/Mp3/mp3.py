@@ -26,7 +26,7 @@ def send(sock: socket.socket, data: bytes):
     logger = miniproject3.logging.get_logger("mp3-sender")
     chunk_size = miniproject3.MAX_PACKET-5
     pause = .1
-    offsets = range(0, len(data), miniproject3.MAX_PACKET-5)
+    offsets = range(0, len(data), chunk_size)
     for chunk in [data[i:i + chunk_size] for i in offsets]:
         sock.send(b'00000' + chunk)
         logger.info("Pausing for %f seconds", round(pause, 2))
@@ -55,7 +55,7 @@ def recv(sock: socket.socket, dest: io.BufferedIOBase) -> int:
         if not data:
             break
         logger.info("Received %d bytes", len(data))
-        dest.write(data)
+        dest.write(data[5:])
         num_bytes += len(data)
         dest.flush()
     return num_bytes
