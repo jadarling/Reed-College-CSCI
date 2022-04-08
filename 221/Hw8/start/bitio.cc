@@ -5,7 +5,6 @@ bool
 BitInput::input_bit(){
 	uint8_t i; //reads a whole byte
 	uint8_t mask = 128; //so that only most significant (leftmost) bit is read, 128 is 10000000 in binary
-	std::cin >> i; //read char to i
 	assert(this->is.std::ios::good()); //check istream is good
 	i = i & mask; //bitwise and
 	i = i >> 7; //shift over so that 1 will be either 0 or 1

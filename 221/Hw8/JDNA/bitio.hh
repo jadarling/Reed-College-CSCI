@@ -2,13 +2,17 @@
  * A pair of simple classes tu perform stream I/O on individual bits.
  */
 #include <iostream>
+#include <vector>
+
 
 // BitInput: Read a single bit at a time from an input stream.
 // Before reading any bits, ensure your input stream still has valid inputs.
 class BitInput {
+  
  public:
   // Construct with an input stream
-  BitInput(std::istream& is);
+  BitInput(std::istream& is)
+   : is_(is), buff_(0), count_(0) {}
 
   BitInput(const BitInput&) = default;
   BitInput(BitInput&&) = default;
@@ -20,7 +24,9 @@ class BitInput {
   bool input_bit();
   
   private:
-    std::istream& is;
+    uint8_t buff_;
+    uint8_t count_;
+    std::istream& is_;
 };
 
 // BitOutput: Write a single bit at a time to an output stream
@@ -28,7 +34,8 @@ class BitInput {
 class BitOutput {
  public:
   // Construct with an input stream
-  BitOutput(std::ostream& os);
+  BitOutput(std::ostream& os) 
+  : os_(os), buff_(0), count_(0) {}
 
   // Flushes out any remaining output bits and trailing zeros, if any:
   ~BitOutput();
@@ -40,7 +47,9 @@ class BitOutput {
 
   // Output a single bit (buffered)
   void output_bit(bool bit);
-
-  std::ostream& os;
+  private:
+    uint8_t buff_;
+    uint8_t count_;
+    std::ostream& os_;
 };
 
