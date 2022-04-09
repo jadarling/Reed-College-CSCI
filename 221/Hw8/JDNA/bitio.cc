@@ -7,7 +7,7 @@ bool
 BitInput::input_bit(){
     uint8_t mask = 1;
     if (count_ == 0){
-        is_.get(buff_);}
+        buff_ = is_.get();}
     uint8_t tmp = buff_ >> count_;
     count_ += 1;
     if (count_ == 8){
@@ -27,4 +27,10 @@ BitOutput::output_bit(bool bit){
         buff_ = 0;
         count_ = 0;
     }
+};
+
+BitOutput::~BitOutput(){ 
+    if (count_ != 0){  
+        os_.put(buff_);
+    };
 };
